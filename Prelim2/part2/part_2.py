@@ -24,11 +24,8 @@ def part_2(d: int, h: int, b: int, m_cost: float, margin: float) -> float:
     ### Votre code va ici ###
     import math
     top = math.pi * (d/2)**2
-    print(top)
     side = 2 * math.pi * (d/2) * h
-    print(side)
     brim = math.pi * (b + (d/2))**2 - math.pi * (d/2)**2
-    print(brim)
     materials = top + side + brim
     profit = round(materials * m_cost * margin, 2)
 
