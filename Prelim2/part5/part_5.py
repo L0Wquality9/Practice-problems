@@ -20,7 +20,8 @@ def part_5(h: int, d: int, angle: int):
     initial_speed = 0
     ### You code goes here ###
     ### Votre code va ici ###
-
+    import math
+    initial_speed = round(pow((9.81*pow(d,2)/(2*pow(math.cos(math.radians(angle)),2)*(h+d*math.tan(math.radians(angle))))),0.5),2)
 
 
     return initial_speed
