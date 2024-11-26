@@ -24,14 +24,14 @@ def part_4(weights, positions):
     for i in range(len(weights)):
         effect += weights[i]*positions[i]
     
-    print(effect)
+    
     
     position = -effect/100
     if position == -0:
         position = 0
     if effect not in range(-50,50):
         position = error_message
-    print(position)
+    
     
         
 

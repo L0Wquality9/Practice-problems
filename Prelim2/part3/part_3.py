@@ -69,4 +69,4 @@ def part_3(words):
 
 
     return CAPTCHA
-part_3(words=["sitting", "kitten"])
+part_3(words=["adorables!", "chatons"])
