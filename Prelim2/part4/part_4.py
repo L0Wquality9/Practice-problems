@@ -31,6 +31,7 @@ def part_4(weights, positions):
         position = 0
     if effect not in range(-50,50):
         position = error_message
+
     
     
         
@@ -40,3 +41,4 @@ def part_4(weights, positions):
 
 
     return position
+print(part_4([0.5, -0.2, 0.5, -0.1], [40, 70, 70, 40]))
