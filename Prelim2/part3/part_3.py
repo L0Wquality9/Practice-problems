@@ -44,29 +44,49 @@ def part_3(words):
     for i in range(len(word_1)+2):
         string.append("-")
     print(*string)
-    if len(word_1)>len(word_2):
-        
-        for t in range(len(word_2)):
-            for i in range(len(word_1)):
-                if i+1>len(word_2):
-                    grid[t+2][i+2] = grid[t+2][i+1]+1
-                elif word_1[i]!=word_2[t]:
-                    grid[t+2][i+2] = grid[t+1][i+1]+1
-                elif word_1[i]==word_2[i]:
-                    grid[t+2][i+2] = grid[t+1][i+1]
-            for p in grid:
-                print(*p)
-            print(*string)
-        
-        
-    else:
-        pass
+    for i in range(len(grid)-2):
+        print(i)
+        print(len(grid[i]))
+        for j in range(len(grid[i])-2):
+            print(j)
+            print(word_2[i])
+            print(word_1[j])
+            if min(i,j)==0:
+                grid[i+2][j+2] = max(i,j)+1
+            else:
+                if word_2[i] != word_1[j]:
+                    
+                    grid[i+2][j+2] = min((grid[i+1][j+2]+1), (grid[i+2][j+1]+1), (grid[i+1][j+1]+1))
+                    print(str(i) + " is i, " + str(j)+" is j")
+                else:
+                    grid[i+2][j+2] = min((grid[i+1][j+2]+1), (grid[i+2][j+1]+1), (grid[i+1][j+1]))
+                    print( str(j)+" is j, "+str(i) + " is i")
+                for t in grid:
+                    print(*t)
     
-            
-    for i in grid:
+    
+    
+    print(*string)     
+    for t in grid:
+        print(*t)
+    distance = grid[-1][-1]
+    faceNum = distance%4
+    print(faceNum)
+    if faceNum == 0:
+        face = [" ^-^ ","|'_'|"," > < "]
+    elif faceNum == 1:
+        face = [" ^-^ ","|-_-|"," > < "]
+    elif faceNum == 2:
+        face = [" ^-^ ","|*_*|"," > < "]
+    else:
+        face = [" ^-^ ","|@_@|"," > < "]
+    
+    for i in face:
         print(*i)
+
+    
     
 
 
     return CAPTCHA
-part_3(words=["adorables!", "chatons"])
+part_3(words=["kitten", "sitting"])
