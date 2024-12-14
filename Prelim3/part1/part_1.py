@@ -18,8 +18,60 @@ def part_1(genes) -> int:
     probability = 0.0
     ### You code goes here ###
     ### Votre code va ici ###
+    
+    
+    num_Yy = 0
+    num_YY = 0
+    num_yy = 0
+    num_XX = 0
+    yValue = 0
+    for i in genes:
+        if i == 'XX':
+            num_XX += 1
+        else:
+            if i.islower():
+                num_yy += 1
+                yValue += 2
+            elif i.isupper():
+                num_YY += 1
+            else:
+                num_Yy += 1
+                yValue += 1
+    if is_tree(num_XX):
+        probability = float(num_XX/yValue/4*100)
+        print("is tree")
+    else:
+        probability = float(num_XX/yValue/2*100)
+        print('not tree')
+
+
+    
+    print(probability)
+    thing = list((num_Yy, num_yy, num_YY, num_XX, yValue))
+    print(thing)
+
+
+
+    return probability
+    
+    
+def is_tree(xValue):
+    num = 1
+    nums = 1
+    while True:
+        if xValue <= nums:
+            break
+        
+        else:
+            nums = nums + num*2
+            num = num*2
+    if nums == xValue:
+        return True
+    else:
+        return False
+
+
 
     
 
-    return probability
 

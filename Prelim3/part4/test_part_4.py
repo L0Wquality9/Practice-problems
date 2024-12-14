@@ -34,4 +34,4 @@ def test_longer_inputs():
     assert part_4(["Douleurs abdominales", "Diarrhée", "Constipation", "Fatigue", "Dépression", "Troubles d'équilibre", "Fièvre", "Somnolence"], ["Antibiotiques", "Fluvoxamine"], diagnostics, medicaments) == "Sclérose en plaques"
     assert part_4(["Éternuements", "Diarrhée", "Nausées", "Maux de gorge", "Congestion nasale", "Fatigue", "Toux"], ["Antibiotiques", "Diphénhydramine"], diagnostics, medicaments) == "Rhume"
 
-
+test_from_problem_description()

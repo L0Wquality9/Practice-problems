@@ -20,7 +20,42 @@ def part_3(systolic: int, diastolic: int, heart_rate: int):
     monitor = []
     ### You code goes here ###
     ### Votre code va ici ###
+    systolic_lines = systolic // 20
+    diastolic_lines = diastolic // 20
+    neutral_lines = (180 - heart_rate) // 10
+    neutral = "| |_   "
+    monitor = []
 
+    for i in range(neutral_lines):
+        neutral = neutral + "_"
+
+    spaces = len(neutral) - 3
+    top = " _ "
+    up = "| |"
+    down = "    | |"
+    bottom = "    |_|"
+    for j in range(spaces):
+        up = up + " "
+        top = top + " "
+
+    for k in range(spaces - 4):
+        down = down + " "
+        bottom = bottom + " "
+
+    monitor.append(top)
+    for l in range(systolic_lines - 1):
+        monitor.append(up)
+
+    monitor.append(neutral)
+    for m in range(diastolic_lines - 1):
+        monitor.append(down)
+
+    monitor.append(bottom)
+    for n in range(len(monitor)):
+        for o in range(2):
+            monitor[n] = monitor[n] + monitor[n]
+    for p in monitor:
+        print(p)
 
 
     return monitor

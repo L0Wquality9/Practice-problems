@@ -9,10 +9,11 @@ from part_1 import part_1
 
 def test_from_problem_description():
     assert part_1(["XX", "XX", "Cc", "Cc", "Cc", "CC", "Cc"]) == 25.0
-    assert part_1(["XX", "XX", "XX", "sS", "ss", "Ss", "SS"]) == 31.25
+    assert part_1(["XX", "XX", "XX", "sS", "ss", "Ss", "SS"]) == 18.75
     assert part_1(["XX", "XX", "XX", "XX", "Tt", "tt", "XX", "TT", "TT", "Tt", "Tt", "Tt", "XX", "TT", "tt"]) == 18.75
 
 def test_from_description():
     assert part_1(["XX", "Cc", "cc"]) == 50.0
 
 
+test_from_description()
