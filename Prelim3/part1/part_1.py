@@ -18,37 +18,79 @@ def part_1(genes) -> int:
     probability = 0.0
     ### You code goes here ###
     ### Votre code va ici ###
+    tree = []
+    rows = is_tree(len(genes))+1
+    genes2 = genes[1:]
+    print(genes2)
+    for i in range(rows-1):
+        tree.append([])
     
+    tree[0]=(genes[0])
     
-    num_Yy = 0
-    num_YY = 0
-    num_yy = 0
-    num_XX = 0
-    yValue = 0
-    for i in genes:
-        if i == 'XX':
-            num_XX += 1
-        else:
-            if i.islower():
-                num_yy += 1
-                yValue += 2
-            elif i.isupper():
-                num_YY += 1
+    for i in range(1,rows-1):
+        print(tree)
+        print(i)
+        for j in range(i*2):
+            tree[i].append(genes2[0])
+            genes2.pop(0)
+    for i in range(rows):
+        u = int(((len(tree[-i])/2)))
+        for j in range(u):
+            if tree[-i][j*2] == "XX":
+                print(tree[-i][j])
+                if tree[-i][j*2+1].isupper():
+                    print(tree[-i][j*2+1])
+                elif tree[-i][j*2+1].islower():
+                    print(tree[-i][j*2+1])
+                else:
+                    print(tree[-i][j*2+1])
+                
+            elif tree[-i] == tree[0]:
+                break
             else:
-                num_Yy += 1
-                yValue += 1
-    if is_tree(num_XX):
-        probability = float(num_XX/yValue/4*100)
-        print("is tree")
-    else:
-        probability = float(num_XX/yValue/2*100)
-        print('not tree')
-
+                if tree[-i][j*2].isupper():
+                    
+                    print(tree[-i][j*2])
+                    if tree[-i][j*2+1].isupper():
+                        print(tree[-i][j*2+1])
+                    elif tree[-i][j*2+1].islower():
+                        print(tree[-i][j*2+1])
+                    else:
+                        print(tree[-i][j*2+1])
+                elif tree[-i][j*2].islower():
+                    print(tree[-i][j*2])
+                    if tree[-i][j*2+1].isupper():
+                        print(tree[-i][j*2+1])
+                    elif tree[-i][j*2+1].islower():
+                        print(tree[-i][j*2+1])
+                    else:
+                        print(tree[-i][j*2+1])
+                else:
+                    print(tree[-i][j*2])
+                    if tree[-i][j*2+1].isupper():
+                        print(tree[-i][j*2+1])
+                    elif tree[-i][j*2+1].islower():
+                        print(tree[-i][j*2+1])
+                    else:
+                        print(tree[-i][j*2+1])
+                
+                
+            
+    
 
     
-    print(probability)
-    thing = list((num_Yy, num_yy, num_YY, num_XX, yValue))
-    print(thing)
+    
+    while True:
+        break
+        
+            
+        
+    print(tree)
+    
+            
+
+
+
 
 
 
@@ -58,6 +100,7 @@ def part_1(genes) -> int:
 def is_tree(xValue):
     num = 1
     nums = 1
+    rows = 0
     while True:
         if xValue <= nums:
             break
@@ -65,13 +108,11 @@ def is_tree(xValue):
         else:
             nums = nums + num*2
             num = num*2
-    if nums == xValue:
-        return True
-    else:
-        return False
-
+            rows += 1
+    return rows+1
 
 
     
 
 
+part_1(["XX", "XX", "Cc", "Cc", "Cc", "CC", "Cc"])
