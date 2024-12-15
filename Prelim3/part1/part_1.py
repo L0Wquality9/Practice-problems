@@ -25,12 +25,12 @@ def part_1(genes) -> int:
     for i in range(rows-1):
         tree.append([])
     
-    tree[0]=(genes[0])
+    tree[0].append(genes[0])
     
     for i in range(1,rows-1):
         print(tree)
         print(i)
-        for j in range(i*2):
+        for j in range(len(tree[i-1])*2):
             tree[i].append(genes2[0])
             genes2.pop(0)
     for i in range(rows):
@@ -115,4 +115,4 @@ def is_tree(xValue):
     
 
 
-part_1(["XX", "XX", "Cc", "Cc", "Cc", "CC", "Cc"])
+part_1(["XX", "XX", "XX", "XX", "Tt", "tt", "XX", "TT", "TT", "Tt", "Tt", "Tt", "XX", "TT", "tt"])
