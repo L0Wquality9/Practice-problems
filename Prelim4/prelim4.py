@@ -38,5 +38,14 @@ def get_customers(map: list[list[int]], n: int) -> list[tuple[int, int]]:
 def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
     solution = []
     ### Your code goes here ###
+    stations = get_stations(map, n)
+    customers = get_customers(map, n)
+    for i in customers:
+        min_risk = 9999999999999999
+        for j in stations:
+            distance = distance_manhattan(customers[i], stations[j])
+            if distance < min_risk:
+                min_risk = distance
+        
 
     return solution
