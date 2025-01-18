@@ -40,12 +40,41 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
     ### Your code goes here ###
     stations = get_stations(map, n)
     customers = get_customers(map, n)
-    for i in customers:
-        min_risk = 9999999999999999
-        for j in stations:
-            distance = distance_manhattan(customers[i], stations[j])
-            if distance < min_risk:
-                min_risk = distance
+    station_dist = []
+    for i in stations:
+        all_customers_dist = {}
+        for j in customers:
+            distance = distance_manhattan(j, i)
+            all_customers_dist[j] = distance
+        station_dist.append(all_customers_dist)
+    sorted_station_dist = []
+    for i in station_dist:
+        my_keys = list(i.keys())
+        my_keys.sort()
+        Sorted = {j: i[j] for j in my_keys}
+        sorted_station_dist.append(Sorted)
+    for i in sorted_station_dist:
+        station_sol = []
+        for j in range(4):
+            station_sol.append(i.popitem()[0])
+        solution.append(station_sol)
+        for j in range(len(sorted_station_dist)):
+            if j == 0:
+                sorted_station_dist.pop(0)
+            else:
+                to_pop = []
+                for k in sorted_station_dist[j-1]:
+                    if k in station_sol:
+                        to_pop.append(k)
+                for k in to_pop:
+                    sorted_station_dist[j-1].pop(k)
+        
+
+
+            
+    
+
+            
         
 
     return solution
