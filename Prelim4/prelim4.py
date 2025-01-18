@@ -8,7 +8,7 @@ Ceci est le fichier template pour le problème Prelim4.
 def distance_manhattan(city_a: tuple[int,int], city_b: tuple[int,int]) -> int:
     distance = 0
     ## Your code goes here ###
-    abs(city_a[0] - city_b[0]) + abs(city_a[1] - city_b[1])
+    distance = abs(city_a[0] - city_b[0]) + abs(city_a[1] - city_b[1])
 
     return distance
 
@@ -51,10 +51,9 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
     for i in station_dist:
         my_keys = list(i.keys())
         my_keys.sort()
-        my_keys = my_keys[0,5]
-        Sorted = {j: i[j] for j in my_keys}
-        sorted_station_dist.append(Sorted)
         
+        Sorted = {j: i[j] for j in my_keys}
+        sorted_station_dist.append(Sorted)      
 
     for i in sorted_station_dist:
         station_sol = []
@@ -62,16 +61,12 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
             station_sol.append(i.popitem()[0])
         solution.append(station_sol)
         for j in range(len(sorted_station_dist)):
-            if j == 0:
-                sorted_station_dist.pop(0)
-            else:
-                to_pop = []
-                for k in sorted_station_dist[j-1]:
-                    if k in station_sol:
-                        to_pop.append(k)
-                for k in to_pop:
-                    sorted_station_dist[j-1].pop(k)
-    print(solution)
+            to_pop = []
+            for k in sorted_station_dist[j-1]:
+                if k in station_sol:
+                    to_pop.append(k)
+            for k in to_pop:
+                sorted_station_dist[j-1].pop(k)
         
 
 
