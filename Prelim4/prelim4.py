@@ -51,8 +51,11 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
     for i in station_dist:
         my_keys = list(i.keys())
         my_keys.sort()
+        my_keys = my_keys[0,5]
         Sorted = {j: i[j] for j in my_keys}
         sorted_station_dist.append(Sorted)
+        
+
     for i in sorted_station_dist:
         station_sol = []
         for j in range(5):
