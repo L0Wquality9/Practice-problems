@@ -55,7 +55,7 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
         sorted_station_dist.append(Sorted)
     for i in sorted_station_dist:
         station_sol = []
-        for j in range(4):
+        for j in range(5):
             station_sol.append(i.popitem()[0])
         solution.append(station_sol)
         for j in range(len(sorted_station_dist)):
@@ -68,6 +68,7 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
                         to_pop.append(k)
                 for k in to_pop:
                     sorted_station_dist[j-1].pop(k)
+    print(solution)
         
 
 
