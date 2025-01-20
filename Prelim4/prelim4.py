@@ -17,19 +17,20 @@ def get_stations(map: list[list[int]], n: int) -> list[tuple[int, int]]:
     stations = []
     ### Your code goes here ###
     column = 0
-    amount_popped = 0
+    old_row = 0
     while True:
         try:
-            row = map[column].index(2) + amount_popped
-            map[column].pop(row)
-            amount_popped += 1
+            row = map[column][old_row + 1:].index(1)
+            old_row = row
+            
             stations.append((column, row))
             print("hi")
             print(column,row)
-        except:
+        except ValueError:
             if len(map) != column:
                 column += 1
-                amount_popped += 1
+                old_row = 0
+                
             else:
                 break
 
@@ -41,19 +42,20 @@ def get_customers(map: list[list[int]], n: int) -> list[tuple[int, int]]:
     customers = []
     ### Your code goes here ###
     column = 0
-    amount_popped = 0
+    
+    old_row = 0
     while True:
         try:
-            row = map[column].index(2) + amount_popped
-            map[column].pop(row - amount_popped)
-            amount_popped += 1
+            row = map[column][old_row + 1:].index(2)
+            
+            old_row = row
             customers.append((column, row))
             print("hi")
             print(column,row)
         except:
             if len(map) != column:
                 column += 1
-                amount_popped = 0
+                old_row = 0
             else:
                 break
                     
