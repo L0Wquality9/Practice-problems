@@ -16,10 +16,23 @@ def distance_manhattan(city_a: tuple[int,int], city_b: tuple[int,int]) -> int:
 def get_stations(map: list[list[int]], n: int) -> list[tuple[int, int]]:
     stations = []
     ### Your code goes here ###
-    for i in range(n):
-        for j in range(n):
-            if map[i][j] == 1:
-                stations.append((i,j))
+    column = 0
+    amount_popped = 0
+    while True:
+        try:
+            row = map[column].index(2) + amount_popped
+            map[column].pop(row)
+            amount_popped += 1
+            stations.append((column, row))
+            print("hi")
+            print(column,row)
+        except:
+            if len(map) != column:
+                column += 1
+                amount_popped += 1
+            else:
+                break
+
 
 
     return stations
@@ -27,11 +40,25 @@ def get_stations(map: list[list[int]], n: int) -> list[tuple[int, int]]:
 def get_customers(map: list[list[int]], n: int) -> list[tuple[int, int]]:
     customers = []
     ### Your code goes here ###
-    for i in range(n):
-        for j in range(n):
-            if map[i][j] == 2:
-                customers.append((i,j))
-
+    column = 0
+    amount_popped = 0
+    while True:
+        try:
+            row = map[column].index(2) + amount_popped
+            map[column].pop(row - amount_popped)
+            amount_popped += 1
+            customers.append((column, row))
+            print("hi")
+            print(column,row)
+        except:
+            if len(map) != column:
+                column += 1
+                amount_popped = 0
+            else:
+                break
+                    
+                
+    print(str(customers) + "customersS")
     return customers
 
 
@@ -58,6 +85,7 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
     for i in sorted_station_dist:
         station_sol = []
         for j in range(5):
+            print(i)
             station_sol.append(i.popitem()[0])
         solution.append(station_sol)
         for j in range(len(sorted_station_dist)):
