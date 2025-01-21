@@ -24,8 +24,8 @@ def get_stations(map: list[list[int]], n: int) -> list[tuple[int, int]]:
             old_row = row
             
             stations.append((column, row))
-            print("hi")
-            print(column,row)
+            #print("hi")
+            #print(column,row)
         except:
             if len(map) != column:
                 column += 1
@@ -50,8 +50,8 @@ def get_customers(map: list[list[int]], n: int) -> list[tuple[int, int]]:
             
             old_row = row
             customers.append((column, row))
-            print("hi")
-            print(column,row)
+            #print("hi")
+            #print(column,row)
         except:
             if len(map) != column:
                 column += 1
