@@ -43,7 +43,7 @@ def is_valid_solution(original_map: list[list[int]], solution: list[list[tuple[i
         for j in range(n):
             if original_map[i][j] == 2:
                 if (i, j) not in all_cities:
-                    print(i, j)
+                    #print(i, j)
                     print("You have forgetten a city!")
                     return False
                 else:

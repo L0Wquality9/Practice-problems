@@ -24,8 +24,7 @@ def get_stations(map: list[list[int]], n: int) -> list[tuple[int, int]]:
             old_row = row
             
             stations.append((column, row))
-            #print("hi")
-            #print(column,row)
+            
         except:
             if len(map) != column:
                 column += 1
@@ -50,8 +49,7 @@ def get_customers(map: list[list[int]], n: int) -> list[tuple[int, int]]:
             
             old_row = row
             customers.append((column, row))
-            #print("hi")
-            #print(column,row)
+            
         except:
             if len(map) != column:
                 column += 1
@@ -60,7 +58,7 @@ def get_customers(map: list[list[int]], n: int) -> list[tuple[int, int]]:
                 break
                     
                 
-    print(str(customers) + "customersS")
+    
     return customers
 
 
@@ -87,7 +85,7 @@ def solve(map: list[list[int]], n: int) -> list[list[tuple[int, int]]]:
     for i in sorted_station_dist:
         station_sol = []
         for j in range(5):
-            print(i)
+            
             station_sol.append(i.popitem()[0])
         solution.append(station_sol)
         for j in range(len(sorted_station_dist)):
