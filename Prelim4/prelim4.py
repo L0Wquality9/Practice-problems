@@ -20,45 +20,31 @@ def get_stations(map: list[list[int]], n: int) -> list[tuple[int, int]]:
     old_row = -1
     while True:
         try:
-            row = map[column].index(1, old_row + 1)
-            old_row = row
-            
+            old_row = row = map[column].index(1, old_row + 1)
             stations.append((column, row))
-            
         except:
-            if len(map) != column:
+            if len(stations) == n/5:
+                break
+            else:
                 column += 1
                 old_row = -1
-                
-            else:
-                break
-
-
-
     return stations
 
 def get_customers(map: list[list[int]], n: int) -> list[tuple[int, int]]:
     customers = []
     ### Your code goes here ###
     column = 0
-    
     old_row = -1
     while True:
         try:
-            row = map[column].index(2, old_row + 1)
-            
-            old_row = row
+            old_row = row = map[column].index(2, old_row + 1)
             customers.append((column, row))
-            
         except:
-            if len(map) != column:
+            if len(customers) == n:
+                break
+            else:
                 column += 1
                 old_row = -1
-            else:
-                break
-                    
-                
-    
     return customers
 
 
